@@ -1,10 +1,10 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import dotenv from "dotenv";
 import rateLimit from "express-rate-limit";
 
-dotenv.config();
 
 const app = express();
 
@@ -74,7 +74,7 @@ app.use((req, res, next) => {
   if (isDev) {
     await setupVite(app, server);
   } else {
-    serveStatic(app);
+    // serveStatic(app);
   }
 
   const port = parseInt(process.env.PORT || "5000", 10);
