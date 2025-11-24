@@ -131,7 +131,9 @@
 /* The global selectors MUST be here, outside of any @layer block. */
 
 * {
-    @apply border-border;
+    /* CHANGED: Replaced @apply border-border with direct CSS variable usage
+       to fix the compilation order issue in PostCSS. */
+    border-color: hsl(var(--border));
 }
 
 body {
