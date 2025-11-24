@@ -127,22 +127,23 @@
     --accent-border: hsl(var(--accent));
     --destructive-border: hsl(var(--destructive));
 }
+
+    /* MOVED: Universal and Body selectors inside @layer base to ensure correct processing order */
+    * {
+        /* Retaining box-sizing but removing all border applications here */
+        box-sizing: border-box; 
+    }
+
+    body {
+        /* FIX: Using raw CSS variables instead of @apply to bypass build order issues */
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+    }
 } 
-/* The global selectors MUST be here, outside of any @layer block. */
-
-* {
-    /* Retaining box-sizing but removing all border applications here */
-    box-sizing: border-box; 
-}
-
-body {
-    /* FIX: Replaced @apply bg-background text-foreground font-sans with raw CSS variables */
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-}
+/* No global selectors outside of any @layer block. */
 
 
 /**
