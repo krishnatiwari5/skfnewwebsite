@@ -127,15 +127,18 @@
     --accent-border: hsl(var(--accent));
     --destructive-border: hsl(var(--destructive));
 }
+} /* <-- @layer base ends here! */
 
 
-    * {
-        @apply border-border;
-    }
+/* * MOVED: These global selectors are now outside @layer base 
+ * to ensure the utility classes (like border-border) are generated before @apply runs.
+ */
+* {
+    @apply border-border;
+}
 
-    body {
-        @apply font-sans antialiased bg-background text-foreground;
-    }
+body {
+    @apply font-sans antialiased bg-background text-foreground;
 }
 
 
