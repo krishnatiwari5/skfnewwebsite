@@ -127,12 +127,9 @@
     --accent-border: hsl(var(--accent));
     --destructive-border: hsl(var(--destructive));
 }
-} /* <-- @layer base ends here! */
+} 
+/* The global selectors MUST be here, outside of any @layer block. */
 
-
-/* * MOVED: These global selectors are now outside @layer base 
- * to ensure the utility classes (like border-border) are generated before @apply runs.
- */
 * {
     @apply border-border;
 }
