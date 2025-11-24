@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
 /* LIGHT MODE */
 :root {
   --button-outline: rgba(0,0,0, .10);
@@ -165,7 +166,7 @@
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 }
 
-@layer base {
+
   * {
     @apply border-border;
   }
@@ -174,6 +175,7 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
 
 /**
  * Using the elevate system.
