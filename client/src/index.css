@@ -131,17 +131,17 @@
 /* The global selectors MUST be here, outside of any @layer block. */
 
 * {
-    /* The @apply border-border was removed and replaced with raw CSS.
-       However, since this block seems to be the source of persistent failure,
-       I am removing all border application from the universal selector entirely. 
-       This removes the dependency on the custom utility class. 
-       You will need to apply border classes where needed in your React components.
-    */
-    box-sizing: border-box; /* Ensuring standard box model behavior */
+    /* Retaining box-sizing but removing all border applications here */
+    box-sizing: border-box; 
 }
 
 body {
-    @apply font-sans antialiased bg-background text-foreground;
+    /* FIX: Replaced @apply bg-background text-foreground font-sans with raw CSS variables */
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
 }
 
 
